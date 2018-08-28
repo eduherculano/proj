@@ -1,6 +1,6 @@
 <?php
 
-namespace App\pessoa;
+namespace App\models\pessoa;
 
 class Pessoa
 {

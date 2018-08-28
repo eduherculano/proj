@@ -1,6 +1,6 @@
 <?php
 
-namespace App\operacao;
+namespace App\models\operacao;
 
 class Operacao {
     

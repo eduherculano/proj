@@ -1,6 +1,6 @@
 <?php
 
-namespace App\local;
+namespace App\models\local;
 
 class Local {
     
