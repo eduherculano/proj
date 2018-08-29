@@ -20,9 +20,9 @@ $usuario = new Usuario;
 $pessoa = new Pessoa;
 $operacao = new Operacao;
 $local = new Local;
-
 $pesquisar = new Conexao;
-print_r($pesquisar->pesquisarTodosUsuarios());
+
+//print_r($pesquisar->pesquisarTodosUsuarios());
 
 
 $email = 'janio.junior2@policiacivil.sp.gov.br';
@@ -33,7 +33,9 @@ $unidadePolicial_id = 1;
 
 //$pesquisar->inserirUsuario($email, $pass, $acesso, $nome, $unidadePolicial_id);
 
+$buscar = 'jânio';
 
+print_r($pesquisar->pesquisarUsuariosPorNome($buscar));
 
 
 
