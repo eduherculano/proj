@@ -21,9 +21,28 @@ $pessoa = new Pessoa;
 $operacao = new Operacao;
 $local = new Local;
 
-$conexao = new conexao;
+$pesquisar = new Conexao;
+print_r($pesquisar->pesquisarTodosUsuarios());
 
 
+$email = 'janio.junior2@policiacivil.sp.gov.br';
+$pass = '1234554321';
+$acesso = 'analista';
+$nome = 'Jânio Konno Júnior';
+$unidadePolicial_id = 1;
+
+//$pesquisar->inserirUsuario($email, $pass, $acesso, $nome, $unidadePolicial_id);
+
+
+
+
+
+
+
+
+
+
+/*
 print_r($usuario);
 echo "<hr />";
 print_r($pessoa);
@@ -34,10 +53,11 @@ print_r($local);
 echo "<br /><br />";
 echo "<hr />";
 echo "<br /><br />";
-print_r($usuario);
+var_dump($usuario);
 echo "<hr />";
 var_dump($pessoa);
 echo "<hr />";
 var_dump($operacao);
 echo "<hr />";
 var_dump($local);
+ */
