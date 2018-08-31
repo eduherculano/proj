@@ -2,18 +2,27 @@
 
 namespace App\models\conexao;
 
-use \PDO as PDO;
+require_once 'base.php';
 
-class Conexao
+use \PDO as PDO;
+use App\models\conexao\Base as Base;
+
+
+class Conexao extends Base
 {  
     protected $pdo;
     public $resultado;
-    public $retorno;
     
     
     public function __construct()
     {
-        include 'base.php';
+        parent::__construct();
+        $host = $this->host;
+        $db = $this->db;
+        $user = $this->user;
+        $pass = $this->pass;
+        $charset = $this->charset;
+        $fetchMode = $this->fetchMode;
         
         try
         {
