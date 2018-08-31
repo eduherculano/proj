@@ -1,6 +1,6 @@
 <?php
 
-namespace App\models\pessoa;
+namespace App\controllers\pessoa;
 
 class Pessoa
 {

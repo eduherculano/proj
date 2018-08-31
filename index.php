@@ -1,19 +1,19 @@
 <pre>
 <?php
 
-require_once "models/usuario.php";
-require_once "models/pessoa.php";
-require_once "models/operacao.php";
-require_once "models/local.php";
+require_once "controllers/usuario.php";
+require_once "controllers/pessoa.php";
+require_once "controllers/operacao.php";
+require_once "controllers/local.php";
 
-use App\models\usuario\Usuario as Usuario;
-use App\models\pessoa\Pessoa as Pessoa;
-use App\models\operacao\Operacao as Operacao;
-use App\models\local\Local as Local;
+use App\controllers\usuario\Usuario as Usuario;
+use App\controllers\pessoa\Pessoa as Pessoa;
+use App\controllers\operacao\Operacao as Operacao;
+use App\controllers\local\Local as Local;
 
-require_once "controllers/conexao.php";
+require_once "models/conexao.php";
 
-use App\controllers\conexao\Conexao as Conexao;
+use App\models\conexao\Conexao as Conexao;
 
 
 $usuario = new Usuario;

@@ -1,6 +1,8 @@
 <?php
 
-namespace App\controllers\conexao;
+namespace App\models\conexao;
+
+use \PDO as PDO;
 
 class Conexao
 {  
@@ -15,7 +17,7 @@ class Conexao
         
         try
         {
-            $this->pdo = new \PDO("mysql:host=$host;dbname=$db;charset=$charset", $user, $pass, $fetchMode);   
+            $this->pdo = new PDO("mysql:host=$host;dbname=$db;charset=$charset", $user, $pass, $fetchMode);   
         }
         catch (Exception $ex)
         {
