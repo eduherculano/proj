@@ -1,0 +1,15 @@
+cd [diretório]
+git init
+
+git remote add origin https://github.com/eduherculano/proj.git
+
+git add .
+git add [arquivo.ext]
+
+git rm [arquivo.ext]
+
+git status
+
+git commit -m "Mensaggem"
+
+git clone https://github.com/eduherculano/proj.git
