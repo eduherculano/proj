@@ -1,9 +1,14 @@
 <?php
 
-namespace App\controllers\pessoa;
+namespace App\classes\pessoa;
 
-class Pessoa
+require_once 'conexao.php';
+Use App\classes\conexao\Conexao as Conexao;
+
+class Pessoa extends Conexao
 {
+    
+    // ---------- ATRIBUTOS DA CLASSE ----------
     
     protected $classificacao;  // array [alvo, autor, vitima, testemunha, parte]
     protected $nome;  // string
@@ -26,6 +31,12 @@ class Pessoa
     protected $imagem;  // objeto
     protected $dataDoCadastro;  // string
     protected $atualizacaoDoCadastro;   // string
+    
+    
+    // ---------- MÉTODO ESPECIAL CONSTRUCT ----------
+    
+    
+    // ---------- MÉTODOS ESPECIAIS GETTERS E SETTERS ----------
     
     
     public function getClassificacao()
@@ -237,11 +248,9 @@ class Pessoa
     {
         $this->atualizacaoDoCadastro = date("Y-m-d H:i:s");
     }
-
-
-
-
-
+    
+    
+    // ---------- MÉTODOS DA CLASSE ----------
 
 
 

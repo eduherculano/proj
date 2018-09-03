@@ -1,22 +1,31 @@
 <?php
 
-namespace App\models\unidadePolicial;
+namespace App\classes\unidadePolicial;
 
 require_once 'conexao.php';
-
-
-use App\models\conexao\Conexao as Conexao;
+use App\classes\conexao\Conexao as Conexao;
 
 class UnidadePolicial extends Conexao
 {
     
-    public function __construct() {
-        
+    // ---------- ATRIBUTOS DA CLASSE ----------
+    
+    
+    // ---------- MÉTODO ESPECIAL CONSTRUCT ----------
+    
+    
+    public function __construct() 
+    {   
         parent::__construct();
         //protected $pdo;
         //protected $resultado;
-        
     }
+    
+    
+    // ---------- MÉTODOS ESPECIAIS GETTERS E SETTERS ----------
+    
+    
+    // ---------- MÉTODOS DA CLASSE ----------
     
     
     public function inserirUnidadePolicial($unidade, $local_id, $telefone_id, $email_id)
@@ -45,6 +54,28 @@ class UnidadePolicial extends Conexao
         $sql = 'SELECT * FROM unidades_policiais';
         $this->resultado = $this->pdo->query($sql);
         return $this->resultado->fetchAll();  
+    }
+    
+    
+    public function pesquisarUnidadesPoliciaisPorUnidade($unidade)
+    {
+        $sql = 'SELECT * FROM unidades_policiais WHERE unidade LIKE :unidade';
+        $this->resultado = $this->pdo->prepare($sql);
+        $this->resultado->bindValue(':unidade',"%$unidade%");
+        
+        try
+        {
+            $this->resultado->execute();
+            print_r($this->resultado->fetchAll());
+            
+        }
+        catch (PDOException $erro)
+        {
+            echo "Erro ao pesquisar. Erro: $erro";
+        }
+        
+        
+        
     }
     
     

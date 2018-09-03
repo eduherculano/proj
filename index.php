@@ -1,33 +1,25 @@
 <pre>
 <?php
 
-require_once 'controllers/usuario.php';
-require_once 'controllers/pessoa.php';
-require_once 'controllers/operacao.php';
-require_once 'controllers/local.php';
+require_once 'classes/usuario.php';
+require_once 'classes/operacao.php';
+require_once 'classes/unidadePolicial.php';
+require_once 'classes/pessoa.php';
+require_once 'classes/local.php';
 
-use App\controllers\usuario\Usuario as ControlarUsuario;
-use App\controllers\pessoa\Pessoa as Pessoa;
-use App\controllers\operacao\Operacao as Operacao;
-use App\controllers\local\Local as Local;
 
-$usuario = new ControlarUsuario;
-$pessoa = new Pessoa;
-$operacao = new Operacao;
-$local = new Local;
+use App\classes\usuario\Usuario as Usuario;
+use App\classes\operacao\Operacao as Operacao;
+use App\classes\unidadePolicial\UnidadePolicial as UnidadePolicial;
+use App\classes\pessoa\Pessoa as Pessoa;
+use App\classes\local\Local as Local;
 
 
 
-require_once 'models/usuario.php';
-require_once 'models/unidadePolicial.php';
+// ------------------------------ MANIPULAÇÃO DA CLASSE USUÁRIO ------------------------------
+echo '<br /><br />';
+$usuario = new Usuario;
 
-use App\models\usuario\Usuario as PesquisarUsuario;
-use App\models\unidadePolicial\UnidadePolicial as PesquisarUnidadePolicial;
-
-
-
-
-$usuario = new PesquisarUsuario;
 
 print_r($usuario->retornarTodosUsuarios());
 //$unidadePolicial_id = 1;
@@ -41,9 +33,24 @@ $unidadePolicial_id = 1;
 //print_r($pesquisar->pesquisarUsuariosPorNome($buscar));
 
 
-echo '<br /><br />';
 
-$unidadePolicial = new PesquisarUnidadePolicial;
+// ------------------------------ MANIPULAÇÃO DA CLASSE OPERAÇÃO ------------------------------
+echo '<br /><br />';
+$operacao = new Operacao;
+
+
+$operacao->adicionarPessoa('Pessoa 1');
+$operacao->adicionarPessoa('Pessoa 3');
+$operacao->adicionarPessoa('Pessoa 3');
+var_dump($operacao->getPessoa());
+
+
+
+
+// ------------------------------ MANIPULAÇÃO DA CLASSE UNIDADEPOLICIAL ------------------------------
+echo '<br /><br />';
+$unidadePolicial = new UnidadePolicial;
+
 
 $unidade = 'PLANTÃO POLICIAL';
 $local_id = 5;
@@ -51,26 +58,20 @@ $telefone_id = 7;
 $email_id = '21x';
 //$unidadePolicial->inserirUnidadePolicial($unidade, $local_id, $telefone_id, $email_id);
 print_r($unidadePolicial->retornarTodasUnidadesPoliciais());
+print_r($unidadePolicial->pesquisarUnidadesPoliciaisPorUnidade("cad"));
+
+
+// ------------------------------ MANIPULAÇÃO DA CLASSE PESSOA ------------------------------
+echo '<br /><br />';
+$pessoa = new Pessoa;
 
 
 
 
-/*
-print_r($usuario);
-echo "<hr />";
-print_r($pessoa);
-echo "<hr />";
-print_r($operacao);
-echo "<hr />";
-print_r($local);
-echo "<br /><br />";
-echo "<hr />";
-echo "<br /><br />";
-var_dump($usuario);
-echo "<hr />";
-var_dump($pessoa);
-echo "<hr />";
-var_dump($operacao);
-echo "<hr />";
-var_dump($local);
- */
+// ------------------------------ MANIPULAÇÃO DA CLASSE LOCAL ------------------------------
+echo '<br /><br />';
+$local = new Local;
+
+
+
+

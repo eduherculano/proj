@@ -1,6 +1,10 @@
 cd [diretório]
 git init
 
+git config --global user.name "Eduardo Herculano da Silva"
+git config --global user.email "contato@herculano.net.br"
+
+
 git remote add origin https://github.com/eduherculano/proj.git
 
 git add .
@@ -11,5 +15,11 @@ git rm [arquivo.ext]
 git status
 
 git commit -m "Mensaggem"
+
+git push origin master
+git push
+
+Username for 'https://github.com':
+Passwordgit for 'https://github.com':
 
 git clone https://github.com/eduherculano/proj.git

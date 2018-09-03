@@ -1,8 +1,14 @@
 <?php
 
-namespace App\controllers\local;
+namespace App\classes\local;
 
-class Local {
+require_once 'conexao.php';
+use App\classes\conexao\Conexao as Conexao;
+
+class Local extends Conexao
+{
+    
+    // ---------- ATRIBUTOS DA CLASSE ----------
     
     protected $tipo;
     protected $logradouro;
@@ -16,6 +22,13 @@ class Local {
     protected $imagem;  // objeto
     protected $dataDoCadastro;
     protected $ultimaAtualizacao;
+    
+    
+    // ---------- MÉTODO ESPECIAL CONSTRUCT ----------
+    
+    
+    // ---------- MÉTODOS ESPECIAIS GETTERS E SETTERS ----------
+    
     
     public function getTipo()
     {
@@ -137,5 +150,9 @@ class Local {
         $this->ultimaAtualizacao = $ult;
     }
     
+    
+    // ---------- MÉTODOS DA CLASSE ----------
+    
+        
     
 }

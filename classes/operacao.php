@@ -1,17 +1,49 @@
 <?php
 
-namespace App\controllers\operacao;
+namespace App\classes\operacao;
 
-class Operacao {
+require_once 'conexao.php';
+use App\classes\conexao\Conexao as Conexao;
+
+class Operacao extends Conexao 
+{
     
+    // ---------- ATRIBUTOS DA CLASSE ----------
+    
+    protected $permissaoDeAcesso;
     protected $nome;
-    protected $ip;
+    protected $inquerito;
     protected $processo;
     protected $pessoa;
     protected $local;
     protected $unidadePolicial;
     protected $dataDoCadastro;
     protected $ultimaAtualizacao;
+    
+    
+    // ---------- MÉTODO ESPECIAL CONSTRUCT ----------
+    
+    
+    public function __contruct()
+    {
+        parent::construct();
+        //protected $pdo;
+        //protected $resultado;
+    }
+    
+    
+    // ---------- MÉTODOS ESPECIAIS GETTERS E SETTERS ----------
+    
+    
+    public function getPermissaoDeAcesso()
+    {
+        return $this->permissaoDeAcesso;
+    }
+    
+    public function setPermissaoDeAcesso($permissao)
+    {
+        $this->permissaoDeAcesso = $permissao;
+    }
     
     public function getNome()
     {
@@ -23,14 +55,14 @@ class Operacao {
         $this->nome = $nom;
     }
     
-    public function getIp()
+    public function getInquerito()
     {
-        return $this->ip;
+        return $this->inquerito;
     }
     
-    public function setIp($ip)
+    public function setInquerito($inquerito)
     {
-        $this->ip = $ip;
+        $this->inquerito = $inquerito;
     }
     
     public function getProcesso()
@@ -48,9 +80,9 @@ class Operacao {
         return $this->pessoa;
     }
     
-    public function setPessoa($pes)
+    public function setPessoa($pessoa)
     {
-        $this->pessoa = $pes;
+        $this->pessoa[] = $pessoa;
     }
     
     public function getLocal()
@@ -91,6 +123,17 @@ class Operacao {
     public function setUltimaAtualizacao()
     {
         $this->ultimaAtualizacao = date("Y-m-d H:i:s");
+    }
+    
+    
+    // ---------- MÉTODOS DA CLASSE ----------
+    
+    
+    public function adicionarPessoa($pessoa)
+    {
+        $this->setPessoa($pessoa);
+        $this->getPessoa();
+
     }
 
 
